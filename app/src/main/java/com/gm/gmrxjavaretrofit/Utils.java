@@ -59,7 +59,7 @@ import java.util.regex.Pattern;
 public class Utils {
 
     static String deviceInfo = "";
-    static com.mirhoseini.utils.Utils.enumDensity density = null;
+    static enumDensity density = null;
     static HashMap<String, String> deviceInfoParams;
 
     /**
@@ -299,9 +299,9 @@ public class Utils {
             final Context context, final boolean isConnectionCritical) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(true);
-        builder.setMessage(com.mirhoseini.utils.R.string.utils__no_connection);
-        builder.setTitle(com.mirhoseini.utils.R.string.utils__no_connection_title);
-        builder.setPositiveButton(com.mirhoseini.utils.R.string.utils__settings,
+        builder.setMessage(R.string.utils__no_connection);
+        builder.setTitle(R.string.utils__no_connection_title);
+        builder.setPositiveButton(R.string.utils__settings,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         context.startActivity(new Intent(
@@ -310,20 +310,20 @@ public class Utils {
                 });
 
         if (isConnectionCritical)
-            builder.setNegativeButton(com.mirhoseini.utils.R.string.utils__exit,
+            builder.setNegativeButton(R.string.utils__exit,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,
                                             int which) {
-                            com.mirhoseini.utils.Utils.exit(context);
+                            exit(context);
                         }
                     });
         else
-            builder.setNegativeButton(com.mirhoseini.utils.R.string.utils__abort, null);
+            builder.setNegativeButton(R.string.utils__abort, null);
 
         if (isConnectionCritical)
             builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 public void onCancel(DialogInterface dialog) {
-                    com.mirhoseini.utils.Utils.exit(context);
+                    exit(context);
                 }
             });
 
@@ -341,9 +341,9 @@ public class Utils {
             final Context context, final boolean isConnectionCritical) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(true);
-        builder.setMessage(com.mirhoseini.utils.R.string.utils__no_connection);
-        builder.setTitle(com.mirhoseini.utils.R.string.utils__no_connection_title);
-        builder.setPositiveButton(com.mirhoseini.utils.R.string.utils__settings,
+        builder.setMessage(R.string.utils__no_connection);
+        builder.setTitle(R.string.utils__no_connection_title);
+        builder.setPositiveButton(R.string.utils__settings,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         context.startActivity(new Intent(
@@ -352,20 +352,20 @@ public class Utils {
                 });
 
         if (isConnectionCritical)
-            builder.setNegativeButton(com.mirhoseini.utils.R.string.utils__exit,
+            builder.setNegativeButton(R.string.utils__exit,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog,
                                             int which) {
-                            com.mirhoseini.utils.Utils.exit(context);
+                            exit(context);
                         }
                     });
         else
-            builder.setNegativeButton(com.mirhoseini.utils.R.string.utils__offline, null);
+            builder.setNegativeButton(R.string.utils__offline, null);
 
         if (isConnectionCritical)
             builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 public void onCancel(DialogInterface dialog) {
-                    com.mirhoseini.utils.Utils.exit(context);
+                    exit(context);
                 }
             });
 
@@ -383,23 +383,23 @@ public class Utils {
             final Context context, final boolean isCritical) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setCancelable(true);
-        builder.setMessage(com.mirhoseini.utils.R.string.utils__no_server);
-        builder.setTitle(com.mirhoseini.utils.R.string.utils__no_server_title);
+        builder.setMessage(R.string.utils__no_server);
+        builder.setTitle(R.string.utils__no_server_title);
 
         if (isCritical)
-            builder.setNegativeButton(com.mirhoseini.utils.R.string.utils__exit,
+            builder.setNegativeButton(R.string.utils__exit,
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            com.mirhoseini.utils.Utils.exit(context);
+                            exit(context);
                         }
                     });
         else
-            builder.setNegativeButton(com.mirhoseini.utils.R.string.utils__abort, null);
+            builder.setNegativeButton(R.string.utils__abort, null);
 
         if (isCritical)
             builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
                 public void onCancel(DialogInterface dialog) {
-                    com.mirhoseini.utils.Utils.exit(context);
+                    exit(context);
                 }
             });
 
@@ -743,21 +743,21 @@ public class Utils {
         if (deviceInfoParams == null) {
             deviceInfoParams = new HashMap<>();
 
-            deviceInfoParams.put("androidVersionName", com.mirhoseini.utils.Utils.getAndroidVersion());
-            deviceInfoParams.put("androidVersionId", com.mirhoseini.utils.Utils.getAndroidVersionInt() + "");
-            deviceInfoParams.put("androidId", com.mirhoseini.utils.Utils.getAndroidID(context));
-            deviceInfoParams.put("mobileModel", com.mirhoseini.utils.Utils.getMobileModel());
-            deviceInfoParams.put("mobileManufacturer", com.mirhoseini.utils.Utils.getMobileManufacturer());
-            deviceInfoParams.put("mobileId", com.mirhoseini.utils.Utils.getMobileId());
-            deviceInfoParams.put("mobileProduct", com.mirhoseini.utils.Utils.getMobileProduct());
-            deviceInfoParams.put("applicationName", com.mirhoseini.utils.Utils.getApplicationName(context));
-            deviceInfoParams.put("applicationVersionName", com.mirhoseini.utils.Utils.getApplicationVersionName(context));
-            deviceInfoParams.put("applicationVersionCode", com.mirhoseini.utils.Utils.getApplicationVersionCode(context) + "");
-            deviceInfoParams.put("screenWidth", com.mirhoseini.utils.Utils.getDisplayWidth(context) + "");
-            deviceInfoParams.put("screenHeight", com.mirhoseini.utils.Utils.getDisplayWidth(context) + "");
-            deviceInfoParams.put("screenDensity", com.mirhoseini.utils.Utils.getDisplayDensity(context) + "");
-            deviceInfoParams.put("screenDensityName", com.mirhoseini.utils.Utils.getDisplaySize(context).toString());
-            deviceInfoParams.put("atdPackages", com.mirhoseini.utils.Utils.getKarinaPackages(context));
+            deviceInfoParams.put("androidVersionName", getAndroidVersion());
+            deviceInfoParams.put("androidVersionId", getAndroidVersionInt() + "");
+            deviceInfoParams.put("androidId", getAndroidID(context));
+            deviceInfoParams.put("mobileModel", getMobileModel());
+            deviceInfoParams.put("mobileManufacturer", getMobileManufacturer());
+            deviceInfoParams.put("mobileId", getMobileId());
+            deviceInfoParams.put("mobileProduct", getMobileProduct());
+            deviceInfoParams.put("applicationName", getApplicationName(context));
+            deviceInfoParams.put("applicationVersionName", getApplicationVersionName(context));
+            deviceInfoParams.put("applicationVersionCode", getApplicationVersionCode(context) + "");
+            deviceInfoParams.put("screenWidth", getDisplayWidth(context) + "");
+            deviceInfoParams.put("screenHeight", getDisplayWidth(context) + "");
+            deviceInfoParams.put("screenDensity", getDisplayDensity(context) + "");
+            deviceInfoParams.put("screenDensityName", getDisplaySize(context).toString());
+            deviceInfoParams.put("atdPackages", getKarinaPackages(context));
         }
         return new HashMap<>(deviceInfoParams);
     }
@@ -779,10 +779,10 @@ public class Utils {
      * @param context Application context
      * @return
      */
-    public static com.mirhoseini.utils.Utils.enumDensity getDisplaySize(Context context) {
+    public static enumDensity getDisplaySize(Context context) {
         if (density == null) {
             DisplayMetrics metrics = context.getResources().getDisplayMetrics();
-            density = com.mirhoseini.utils.Utils.enumDensity.fromFloat(metrics.density);
+            density = enumDensity.fromFloat(metrics.density);
         }
         return density;
     }
@@ -1070,14 +1070,14 @@ public class Utils {
             setValue(v);
         }
 
-        public static com.mirhoseini.utils.Utils.enumDensity fromFloat(Float v) {
+        public static enumDensity fromFloat(Float v) {
             if (v != null) {
-                for (com.mirhoseini.utils.Utils.enumDensity s : com.mirhoseini.utils.Utils.enumDensity.values()) {
+                for (enumDensity s : enumDensity.values()) {
                     if (v.equals(s.getValue())) {
                         return s;
                     }
                 }
-                return com.mirhoseini.utils.Utils.enumDensity.xxxhdpi;
+                return enumDensity.xxxhdpi;
             }
             return null;
         }
