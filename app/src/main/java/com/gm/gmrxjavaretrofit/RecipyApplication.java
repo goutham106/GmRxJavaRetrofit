@@ -10,7 +10,7 @@ import com.gm.gmrxjavaretrofit.recipy.recipyModule;
 public abstract class RecipyApplication extends Application {
 
     private static ApplicationComponent component;
-    private RecipySubComponent searchSubComponent;
+    private RecipySubComponent recipySubComponent;
 
     public static ApplicationComponent getComponent() {
         return component;
@@ -22,19 +22,19 @@ public abstract class RecipyApplication extends Application {
     
 
     public RecipySubComponent getRecipySubComponent() {
-        if (null == searchSubComponent)
+        if (null == recipySubComponent)
             createRecipySubComponent();
 
-        return searchSubComponent;
+        return recipySubComponent;
     }
 
     public RecipySubComponent createRecipySubComponent() {
-        searchSubComponent = component.plus(new recipyModule());
-        return searchSubComponent;
+        recipySubComponent = component.plus(new recipyModule());
+        return recipySubComponent;
     }
 
     public void releaseRecipySubComponent() {
-        searchSubComponent = null;
+        recipySubComponent = null;
     }
 
     @Override
