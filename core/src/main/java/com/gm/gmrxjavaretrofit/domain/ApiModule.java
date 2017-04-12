@@ -16,7 +16,10 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by Mohsen on 20/10/2016.
+ * Name       : Gowtham
+ * Created on : 20/10/2016.
+ * Email      : goutham.gm11@gmail.com
+ * GitHub     : https://github.com/goutham106
  */
 
 @Module

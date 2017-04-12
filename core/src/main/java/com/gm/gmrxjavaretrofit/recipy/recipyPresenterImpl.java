@@ -55,7 +55,7 @@ public class recipyPresenterImpl implements recipyPresenter {
                     if (CODE_OK == CODE_OK)
                         return charactersResponse;
                     else
-                        throw Exceptions.propagate(new ApiResponseCodeException(200, "ERROR in API"));
+                        throw Exceptions.propagate(new ApiResponseCodeException(201, "ERROR in API"));
                 })
                 // check if is there any result
                 .map(charactersResponse -> {
@@ -92,7 +92,6 @@ public class recipyPresenterImpl implements recipyPresenter {
                                 }
                             }
                         });
-
 
     }
 
